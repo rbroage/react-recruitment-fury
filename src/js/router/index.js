@@ -3,6 +3,7 @@ import React from 'react';
 
 // Component
 import Route from './route';
+import RoutingButton from './button';
 
 class Router extends React.PureComponent {
 	constructor(oProps) {
@@ -17,6 +18,9 @@ class Router extends React.PureComponent {
 		this.readRouteChild = this.readRouteChild.bind(this);
 
 		this.readRouteChild(oProps.children);
+
+		// setup Button
+		RoutingButton.handleChangeRoute = this.handleChangeRoute;
 	}
 
 	componentWillReceiveProps(oNextProps) {
@@ -64,4 +68,4 @@ class Router extends React.PureComponent {
 
 Router.displayName = 'Router';
 
-export {Route, Router};
+export {Route, Router, RoutingButton};

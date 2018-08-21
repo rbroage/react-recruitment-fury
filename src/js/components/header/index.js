@@ -2,15 +2,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// Component
-import Logo from './logo';
-
 export default class Header extends React.PureComponent {
 	render() {
 		const {title: sTitle} = this.props;
 		return (
 			<header className="app-header">
-				<Logo/>
+				{this.props.children}
 				<h1 className="app-title">{sTitle}</h1>
 			</header>
 		);
@@ -20,7 +17,8 @@ export default class Header extends React.PureComponent {
 Header.displayName = 'Header';
 
 Header.propTypes = {
-	title: PropTypes.string
+	title: PropTypes.string,
+	children: PropTypes.any
 };
 
 Header.defaultProps = {

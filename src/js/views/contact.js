@@ -4,12 +4,15 @@ import {Grid, Jumbotron} from 'react-bootstrap';
 
 // Components
 import Header from '../components/header';
+import Logo from '../components/header/logo';
 
 export default class Contact extends React.PureComponent {
 	render() {
 		return (
 			<div className="app">
-				<Header/>
+				<Header>
+					<Logo/>
+				</Header>
 				<Grid>
 					<Jumbotron>
 						<p className="text-left">

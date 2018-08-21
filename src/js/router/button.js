@@ -11,9 +11,10 @@ export default class RoutingButton extends React.PureComponent {
 	}
 
 	handleClick() {
-		const {destination: sDestination, onChangePage} = this.props;
-		if (typeof onChangePage === 'function') {
-			onChangePage(sDestination);
+		const {destination: sDestination} = this.props;
+		// handleChangeRoute is set by the router
+		if (typeof RoutingButton.handleChangeRoute === 'function') {
+			RoutingButton.handleChangeRoute(sDestination);
 		}
 	}
 
@@ -34,10 +35,14 @@ export default class RoutingButton extends React.PureComponent {
 RoutingButton.displayName = 'RoutingButton';
 
 RoutingButton.propTypes = {
-	onChangePage: PropTypes.func,
+	// onChangePage: PropTypes.func,
 	destination: PropTypes.string,
 	children: PropTypes.node,
 	className: PropTypes.string,
 	bsStyle: PropTypes.string,
 	style: PropTypes.object
+};
+
+RoutingButton.defaultProps = {
+	destination: ''
 };

@@ -1,18 +1,21 @@
 // Library
 import React from 'react';
-import PropTypes from 'prop-types';
 import {Grid, Jumbotron} from 'react-bootstrap';
+
+// Router
+import {RoutingButton} from '../router';
 
 // Components
 import Header from '../components/header';
-import RoutingButton from '../components/button/routing';
+import Logo from '../components/header/logo';
 
 export default class Main extends React.PureComponent {
 	render() {
-		const {onChangePage} = this.props;
 		return (
 			<div className="app">
-				<Header/>
+				<Header>
+					<Logo/>
+				</Header>
 				<Grid>
 					<Jumbotron>
 						<h1>Hello, world!</h1>
@@ -21,7 +24,7 @@ export default class Main extends React.PureComponent {
 							extra attention to featured content or information.
 						</p>
 						<p>
-							<RoutingButton onChangePage={onChangePage} destination="contact" bsStyle="primary">
+							<RoutingButton destination="contact" bsStyle="primary">
 								Go to page Contact
 							</RoutingButton>
 						</p>
@@ -33,7 +36,3 @@ export default class Main extends React.PureComponent {
 }
 
 Main.displayName = 'Main';
-
-Main.propTypes = {
-	onChangePage: PropTypes.func
-};
